@@ -10,34 +10,35 @@
 
             @endif
             <tr><th colspan="5" class="m-auto">Category Info</th></tr>
-            <form action="category/markdel" method="post">
-                @csrf
+
+
                 <tr>
-                    <th><input type="checkbox" id="checkAll"> Check All</th>
                     <th>SL</th>
                     <th>Category Name</th>
-
                     <th>Sub Category Name</th>
                     <th>Created At</th>
                     <th>Action</th>
                 </tr>
-
-
-
                 <tr>
-
-                </tr>
-                    <td colspan="5" class="m-auto">No data found</td>
-
-
-                <button type="submit" class="btn btn-danger">Deleted Selected</button>
-
-            </table>
-        </form>
+                @forelse ($subcategory as $key=>$item)
+                <td>{{$key+1}}</td>
+                <td>{{$item->category_id}}</td>
+                <td>{{$item->subcategory_name}}</td>
+                <td>{{$item->created_at->diffforhumans()}}</td>
+                <td><a href="#" class="btn btn-danger">Trash</a></td>
 
 
+            </tr>
+
+                @empty
+                <td colspan="5" class="m-auto">No data found</td>
+
+                @endforelse
+           </table>
         </div>
-<div class="col-lg-4">
+
+
+        <div class="col-lg-4">
     <div class="card">
         <div class="card-header">
             <h3>Add Sub Category</h3>

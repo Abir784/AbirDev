@@ -24,12 +24,11 @@ class CategoryController extends Controller
 
         $Category_insert_id= Category::insertGetId([
             'catagory_name'=>$request->catagory_name,
-
             'added_by'=>Auth::id(),
             'created_at'=>Carbon::now(),
         ]);
-
         $category_image = $request->category_image;
+
         $extension=$category_image->getClientOriginalExtension();
         $original_image_name=$Category_insert_id.'.'.$extension;
         Image::make($category_image)->resize(300, 200)->save(public_path('uploads/category/'.$original_image_name));

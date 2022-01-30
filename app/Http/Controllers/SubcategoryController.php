@@ -12,9 +12,12 @@ class SubcategoryController extends Controller
 {
     function subcategory(){
 
+        $subcategory= Subcategory::all();
        $category = Category::all();
         return view('admin/sub_category/index',[
            'category'=> $category,
+           'subcategory' => $subcategory,
+
         ]);
     }
 

@@ -25,7 +25,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'catagory_name'=>'required|unique:categories',
-            'category_image'=>'image|max:512',
+            'category_image'=>'image',
 
 
 
