@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
+use App\Models\Subcategory;
 use Intervention\Image\Facades\Image;
 class CategoryController extends Controller
 {
@@ -61,8 +62,9 @@ class CategoryController extends Controller
         $file_path=public_path('uploads/category/'.Category::onlyTrashed()->find($category_id)->category_image);
 
         unlink($file_path);
+        Subcategory::where('category_id','=',$category_id)->delete();
         Category::onlyTrashed()->find($category_id)->forceDelete();
-        return back()->with('force_deleted','Category deleted permanantly');
+        return back()->with('force_deleted','Category deleted permanantly with subcategories');
 
     }
     function edit($category_id){
@@ -71,7 +73,7 @@ class CategoryController extends Controller
        return view('admin.category.edit',compact('edit_info'));
 
     }
-   function update(CategoryRequest $request){
+   function update(Request $request){
 
     if($request->hasFile('category_image')){
     $query=Category::find($request->id)->category_image;

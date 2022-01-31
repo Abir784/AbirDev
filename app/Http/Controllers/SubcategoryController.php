@@ -30,5 +30,34 @@ class SubcategoryController extends Controller
         ]);
         return back()->with('sub_added','Sub category Added Successfully !');
     }
+    function delete($subcategory_id){
+        Subcategory::find($subcategory_id)->delete();
+        return back()->with('deleted', 'Subcategory Trashed Succesfully !');
+
+
+    }
+    function edit($subcategory_id){
+        $cat_info=Category::where('id','!=',Subcategory::find($subcategory_id)->category_id)->get();
+        $sub_info=Subcategory::find($subcategory_id);
+        return view('admin.sub_category.edit',[
+            'sub_info'=>$sub_info,
+            'cat_info'=>$cat_info,
+        ]);
+    }
+
+    function update(Request $request){
+        Subcategory::find($request->id)->update([
+            'subcategory_name'=>$request->subcategory_name,
+            'category_id'=>$request->category_id,
+            'updated_at'=>Carbon::now(),
+        ]);
+
+
+        return back()->with('updated', 'Sub Category Updated Succesfully !');
+
+
+    }
+
+
 
 }

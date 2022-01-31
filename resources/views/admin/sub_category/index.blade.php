@@ -6,10 +6,10 @@
 
             <table class="table table-bordered">
                 @if (session('deleted'))
-                <div class="alert alert-primary">{{session('deleted')}}</div>
+                <div class="alert alert-danger">{{session('deleted')}}</div>
 
             @endif
-            <tr><th colspan="5" class="m-auto">Category Info</th></tr>
+            <tr><th colspan="5" class="m-auto">Sub Category Info</th></tr>
 
 
                 <tr>
@@ -22,10 +22,12 @@
                 <tr>
                 @forelse ($subcategory as $key=>$item)
                 <td>{{$key+1}}</td>
-                <td>{{$item->category_id}}</td>
+                <td>{{$item->rel_to_category->catagory_name}}</td>
                 <td>{{$item->subcategory_name}}</td>
                 <td>{{$item->created_at->diffforhumans()}}</td>
-                <td><a href="#" class="btn btn-danger">Trash</a></td>
+                <td><a href="{{route('subcategory.delete',$item->id)}}" class="btn btn-danger">Trash</a></td>
+                <td><a href="{{route('subcategory.edit',$item->id)}}" class="btn btn-secondary">Edit</a></td>
+
 
 
             </tr>

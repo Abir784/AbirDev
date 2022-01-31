@@ -44,5 +44,10 @@ Route::get('/category/markrestore/{category_id}',[CategoryController::class,'mar
 //subcategory
 Route::get('/subcategory',[SubcategoryController::class,'subcategory'])->name('subcategory');
 Route::post('/subcategory/insert',[SubcategoryController::class,'insert'])->name('subcategory.insert');
+Route::get('/subcategory/delete/{subcategory_id}',[SubcategoryController::class,'delete'])->name('subcategory.delete');
+Route::get('/subcategory/edit/{subcategory_id}',[SubcategoryController::class,'edit'])->name('subcategory.edit');
+Route::post('/subcategory/update',[SubcategoryController::class,'update'])->name('subcategory.update');
+
+
 
 

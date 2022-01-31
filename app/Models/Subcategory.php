@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subcategory extends Model
 {
+    protected $fillable=['subcategory_name','category_id',];
     use HasFactory;
+    public function rel_to_category(){
+
+        return $this->belongsTo(Category::class, 'category_id', 'id')->withTrashed();
+        }
 }
