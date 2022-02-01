@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-lg-8">
 
@@ -22,7 +22,7 @@
                 <tr>
                 @forelse ($subcategory as $key=>$item)
                 <td>{{$key+1}}</td>
-                <td>{{$item->rel_to_category->catagory_name}}</td>
+                <td>{!!($item->rel_to_category->deleted_at == NULL)?$item->rel_to_category->catagory_name:'<del>' .$item->rel_to_category->catagory_name .'</del>' !!}</td>
                 <td>{{$item->subcategory_name}}</td>
                 <td>{{$item->created_at->diffforhumans()}}</td>
                 <td><a href="{{route('subcategory.delete',$item->id)}}" class="btn btn-danger">Trash</a></td>

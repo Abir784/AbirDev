@@ -1,11 +1,11 @@
-@extends('layouts.app');
+@extends('layouts.dashboard')
 @section('content')
-<div class="container">
+<div class="container-fluid">
 
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h3>Add Category</h3>
+                <h3>Edit  Category</h3>
             </div>
             <div class="card-body">
                 @if (session('success'))

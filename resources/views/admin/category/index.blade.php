@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
  @section('content')
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-lg-8">
 
@@ -30,14 +30,14 @@
                     <td>{{$key+1}}</td>
                     <td>{{$item->catagory_name}}</td>
                     <td>{{App\Models\User::find($item->added_by)->name}}</td>
-                    <td><img width="50px" src="{{asset('uploads/category')}}/{{$item->category_image}}" alt=""></td>
+                    <td><img width="100px" src="{{asset('uploads/category')}}/{{$item->category_image}}" alt=""></td>
                     <td>{{$item->created_at->diffforHumans()}}</td>
 
 
 
 
-                    <td><a href="{{route('delete', $item->id )}}" Class="btn btn-danger">Delete</a></td>
-                    <td><a href="{{route('edit', $item->id )}}" Class="btn btn-warning">Edit</a></td>
+                    <td><a href="{{route('delete', $item->id )}}" Class="btn btn-danger mb-3">Delete</a>
+                        <a href="{{route('edit', $item->id )}}" Class="btn btn-warning">Edit</a></td>
                 </tr>
 
                 @empty
@@ -82,14 +82,16 @@
                       <button type="sumbit" class="btn btn-primary"> Submit</button>
 
                 </form>
+        </div>
 
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
 
         <div class="col-lg-8">

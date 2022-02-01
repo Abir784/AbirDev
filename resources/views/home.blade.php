@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Welcome,<strong style="color:tomato ">  {{Auth::User()->name}}</strong> !<span class="float-end"> Total users:{{$num_user}}</span></div>
 

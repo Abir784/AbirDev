@@ -31,7 +31,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/user/delete/{user_id}', [HomeController::class,'delete'])->name('del');
 
 //category
-Route::get('/category',[CategoryController::class,'category'])->name('cat');
+Route::get('/category',[CategoryController::class,'category'])->name('category.index');
 Route::post('/category/insert',[CategoryController::class,'insert'])->name('insert');
 Route::get('/category/delete/{category_id}',[CategoryController::class, 'delete'])->name('delete');
 Route::get('/category/restore/{category_id}',[CategoryController::class, 'restore'])->name('restore');
@@ -42,12 +42,14 @@ Route::post('/category/markdel',[CategoryController::class,'markdel'])->name('ma
 Route::get('/category/markrestore/{category_id}',[CategoryController::class,'markrestore'])->name('markrestore');
 
 //subcategory
-Route::get('/subcategory',[SubcategoryController::class,'subcategory'])->name('subcategory');
+Route::get('/subcategory',[SubcategoryController::class,'subcategory'])->name('subcategory.index');
 Route::post('/subcategory/insert',[SubcategoryController::class,'insert'])->name('subcategory.insert');
 Route::get('/subcategory/delete/{subcategory_id}',[SubcategoryController::class,'delete'])->name('subcategory.delete');
 Route::get('/subcategory/edit/{subcategory_id}',[SubcategoryController::class,'edit'])->name('subcategory.edit');
 Route::post('/subcategory/update',[SubcategoryController::class,'update'])->name('subcategory.update');
 
+//dashboard
+Route::get('/dashboard',[MyController::class,'dashboard'])->name('dashboard');
 
 
 

@@ -1,6 +1,6 @@
-@extends('layouts.app');
+@extends('layouts.dashboard');
 @section('content')
-<div class="container">
+<div class="container-fluid">
 
     <div class="col-lg-8">
         <div class="card">
