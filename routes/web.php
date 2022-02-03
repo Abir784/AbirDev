@@ -5,6 +5,7 @@ use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -50,6 +51,13 @@ Route::post('/subcategory/update',[SubcategoryController::class,'update'])->name
 
 //dashboard
 Route::get('/dashboard',[MyController::class,'dashboard'])->name('dashboard');
+
+//profile
+Route::get('/profile',[ProfileController::class,'profile'])->name('profile.index');
+Route::post('/profile/change',[ProfileController::class,'profile_change'])->name('profile.change');
+
+
+
 
 
 
