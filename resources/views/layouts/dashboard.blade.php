@@ -779,9 +779,9 @@
             <div class="deznav-scroll">
                     <ul class="metismenu" id="menu">
 
-                    <li><a class="has-arrow ai-icon" href="{{route('dashboard')}}" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="{{route('home')}}" aria-expanded="false">
 							<i class="flaticon-381-networking"></i>
-							<span class="nav-text">Dashboard</span>
+							<span class="nav-text">Admins</span>
 						</a>
                     </li>
                     <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">

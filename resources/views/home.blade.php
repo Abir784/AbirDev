@@ -16,6 +16,7 @@
                       <table class="table table-bordered">
                           <tr>
                               <th>SL</th>
+                              <th>DP</th>
                               <th>Name</th>
                               <th>Email</th>
                               <th>Created At</th>
@@ -24,6 +25,7 @@
                           @foreach ($users as $key=>$user)
                           <tr>
                               <td>{{$users->firstitem()+$key}}</td>
+                              <td><img class="rounded-circle" width="75px" src="{{asset('/uploads/profile_image/'.$user->profile_image)}}" alt=""></td>
                               <td>{{$user->name}}</td>
                               <td>{{$user->email}}</td>
                               <td>{{$user->created_at}}</td>

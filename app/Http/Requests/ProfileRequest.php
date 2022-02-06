@@ -3,7 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Auth\Events\Validated;
 class ProfileRequest extends FormRequest
 {
     /**
@@ -25,25 +27,31 @@ class ProfileRequest extends FormRequest
     {
         return [
             'name'=>'required',
+            'profile_image'=>'image',
             'old_password'=>'required',
-            'password'=> ['confirmed' ,Password::min(8)
-             ->letters()
-             ->mixedCase()
-             ->numbers()
-             ->symbols()
-             ],
+            'password'=>[Password::min(8)
+            ->letters()
+            ->mixedCase()
+            ->numbers()
+            ->symbols()],
+            'password'=>'confirmed',
 
-        ];
 
+
+
+
+];
     }
+
     public function messages()
 
         {
 
          return   [
            'name.required'=>'Enter your name',
-           'old_password.required'=>'You have to enter your old password',
+           'old_password.required'=>'You have to enter password',
            'password.confirmed'=>'Both passwords didnt match',
+           'profile_image.image'=>'You must select an image file only',
 
             ];
        }

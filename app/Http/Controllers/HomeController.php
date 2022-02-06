@@ -33,6 +33,20 @@ class HomeController extends Controller
     }
     public function delete($user_id)
     {
+
+
+
+        if(User::find($user_id)->profile_image == '0.PNG'){
+
+
+            echo '';
+        }else{
+
+            unlink(public_path('uploads/profile_image/'.User::find($user_id)->profile_image));
+
+
+        }
+
         User::find($user_id)->delete();
         return back();
     }
