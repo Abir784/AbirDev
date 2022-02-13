@@ -5,6 +5,7 @@ use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,6 +56,14 @@ Route::get('/dashboard',[MyController::class,'dashboard'])->name('dashboard');
 //profile
 Route::get('/profile',[ProfileController::class,'profile'])->name('profile.index');
 Route::post('/profile/change',[ProfileController::class,'profile_change'])->name('profile.change');
+
+//product
+Route::get('/product',[ProductController::class,'index'])->name('product.index');
+Route::post('/getCategory',[ProductController::class,'ajax']);
+Route::post('/product/insert',[ProductController::class,'insert']);
+
+
+
 
 
 

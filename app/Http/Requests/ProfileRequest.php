@@ -29,16 +29,6 @@ class ProfileRequest extends FormRequest
             'name'=>'required',
             'profile_image'=>'image',
             'old_password'=>'required',
-            'password'=>[Password::min(8)
-            ->letters()
-            ->mixedCase()
-            ->numbers()
-            ->symbols()],
-            'password'=>'confirmed',
-
-
-
-
 
 ];
     }
@@ -50,7 +40,6 @@ class ProfileRequest extends FormRequest
          return   [
            'name.required'=>'Enter your name',
            'old_password.required'=>'You have to enter password',
-           'password.confirmed'=>'Both passwords didnt match',
            'profile_image.image'=>'You must select an image file only',
 
             ];

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\Password;
+use Illuminate\Validation\Validator;
 use App\Models\User;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Hash;
@@ -19,6 +21,18 @@ class ProfileController extends Controller
         if(Hash::check($request->old_password, Auth::user()->password)){
 
             if($request->hasFile('profile_image') && $request->password != '' ){
+
+
+
+                $request->validate([
+                    'password'=>['confirmed',Password::min(8)
+                 ->letters()
+                 ->mixedCase()
+                 ->numbers()
+                 ->symbols()],
+
+                ]);
+
 
 
                 $password = bcrypt($request->password);
@@ -66,6 +80,16 @@ class ProfileController extends Controller
             ]);
 
             }else if($request->password != ''){
+                $request->validate([
+                    'password'=>['confirmed',Password::min(8)
+                 ->letters()
+                 ->mixedCase()
+                 ->numbers()
+                 ->symbols()],
+
+                ]);
+
+
 
                 $password = bcrypt($request->password);
                 User::find(Auth::id())->update([
