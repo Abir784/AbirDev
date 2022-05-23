@@ -37,9 +37,8 @@ class ProductController extends Controller
 
 
     }
+
     function insert(Request $request){
-
-
 
    $id= Products::insertGetId([
         'category_id'=>$request->category_id,

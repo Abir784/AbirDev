@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->integer('after_discount');
             $table->string('brand');
             $table->text('desp');
-            $table->string('product_image');
+            $table->string('product_image')->nullable();
             $table->timestamps();
         });
     }

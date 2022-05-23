@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Gymove - Fitness Bootstrap Admin Dashboard</title>
+    <title>Abir admin Dashboard</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('dashboard_asset/images/favicon.png')}}">
     <link href="{{asset('dashboard_asset/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
@@ -816,6 +816,14 @@
                     <li><a href="{{route('product.index')}}"> Add Products </a></li>
                 </ul>
             </li>
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="flaticon-381-heart"></i>
+                <span class="nav-text">Coupon</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{route('Coupon')}}"> Add Coupon </a></li>
+            </ul>
+        </li>
 
 
                 </ul>

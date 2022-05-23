@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'customerlogin' => [
+            'driver' => 'session',
+            'provider' => 'customer_logins',
+        ],
     ],
 
     /*
@@ -64,11 +68,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'customer_logins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\CustomerLogin::class,
+        ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
